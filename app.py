@@ -11,6 +11,7 @@ def main():
 
     # Set up the Streamlit app
     st.title('VGG16 Image Classification')
+    st.sidebar.info('Created by Lintang Gilang')
 
     # Upload an image
     image = st.file_uploader('Upload an image')
@@ -33,4 +34,4 @@ def main():
         st.image(image)
 
 if __name__ == '__main__':
-    st.sidebar.info('Created by Lintang Gilang')
+    main()
