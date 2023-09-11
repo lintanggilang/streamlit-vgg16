@@ -33,4 +33,4 @@ def main():
         st.image(image)
 
 if __name__ == '__main__':
-    main()
+    st.sidebar.info('Created by Lintang Gilang')
