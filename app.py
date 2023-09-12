@@ -14,7 +14,7 @@ def main():
     st.sidebar.info('Created by Lintang Gilang')
 
     # Upload an image
-    image = st.file_uploader('Upload an image')
+    image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
     if image is not None:
         image = np.array(Image.open(image))
         image = cv2.resize(image, dsize=(224, 224), interpolation=cv2.INTER_CUBIC)
