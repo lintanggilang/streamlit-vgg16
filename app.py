@@ -30,7 +30,8 @@ def main():
         label = decoded_predictions[0][0][1]
 
         # Display the classification
-        st.write('Predicted label:', label)
+        st.subheader("Predicted label:")
+        st.write('label:', label)
         st.image(image)
 
 if __name__ == '__main__':
