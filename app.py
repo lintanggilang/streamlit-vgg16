@@ -14,9 +14,10 @@ def main():
     st.sidebar.info('Created by Lintang Gilang')
 
     # Upload an image
-    image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
-    if image is not None:
-        image = np.array(Image.open(image))
+    uploaded_image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+    if uploaded_image is not None:
+        original_image = Image.open(uploaded_image)  # Save the original uploaded image
+        image = np.array(original_image)
         image = cv2.resize(image, dsize=(224, 224), interpolation=cv2.INTER_CUBIC)
 
         # Preprocess the image for VGG16
@@ -32,7 +33,7 @@ def main():
         # Display the classification
         st.subheader("Predicted label:")
         st.write('label:', label)
-        st.image(image)
+        st.image(original_image)  # Display the original uploaded image
 
 if __name__ == '__main__':
     main()
