@@ -26,14 +26,15 @@ def main():
         # Classify the image
         prediction = model.predict(image_processed)
 
-        # Decode the prediction to get human-readable label
-        decoded_predictions = decode_predictions(prediction, top=1)
-        label = decoded_predictions[0][0][1]
-
-        # Display the classification
-        st.subheader("Predicted label:")
-        st.write('label:', label)
-        st.image(original_image)  # Display the original uploaded image
+        # Decode the top 5 predictions to get human-readable labels and percentages
+        decoded_predictions = decode_predictions(prediction, top=5)
+        
+        st.subheader("Top 5 Predictions:")
+        for i, (imagenet_id, label, score) in enumerate(decoded_predictions[0]):
+            st.write(f"{i + 1}: {label} ({score:.2%})")
+        
+        # Display the original uploaded image
+        st.image(original_image)
 
 if __name__ == '__main__':
     main()
